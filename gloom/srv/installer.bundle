@@ -1,0 +1,35 @@
+echo Running...
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit 127
+else
+git clone https://github.com/WiiLink24/addcron .
+git clone https://github.com/WiiLink24/git-pull-cron .
+git clone https://github.com/WiiLink24/WC24Cron .
+git clone https://github.com/WiiLink24/room-server .
+curl https://npmjs.org/install.sh | sh
+pm2 start update.js
+cp Engine/Assets/bin/* $PWD
+sudo ./init.sh
+sudo ./path.sh
+sudo ./run.sh
+cp All/* $PWD
+sudo ./add-cron.sh
+rm add-cron.sh
+rm jobs.cron
+cp Check_Mii_Out_Channel/* $PWD
+sudo ./add-cron.sh
+rm add-cron.sh
+rm jobs.cron
+cp Forecast_Channel/* $PWD
+sudo ./add-cron.sh
+rm add-cron.sh
+rm jobs.cron
+cp News_Channel/* $PWD
+sudo ./add-cron.sh
+rm add-cron.sh
+rm jobs.cron
+cp Everybody_Votes_Channel/* $PWD
+sudo ./add-cron.sh
+rm add-cron.sh
+rm jobs.cron
