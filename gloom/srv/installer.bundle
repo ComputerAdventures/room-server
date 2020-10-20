@@ -18,7 +18,7 @@ mkdir main
 mkdir secn
 mkdir othr
 mkdir data
-mkdir rest
+mkdir more
 jumpto main
 :main
 while getopts a:f:d:r:e: flag
@@ -46,8 +46,8 @@ then
   sudo ./runme.sh
   cp All/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh main/add-cron.sh
+  mv jobs.cron main/jobs.cron
   exit 0
 elif [ $yn8 == $dataothr ]
 then
@@ -63,8 +63,8 @@ then
   sudo ./path.sh
   cp All/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh main/add-cron.sh
+  mv jobs.cron main/jobs.cron
   sudo ./run.sh
   exit 0
 if [ $datamain == $datarest ]
@@ -82,20 +82,20 @@ then
   sudo ./runme.sh
   cp Check_Mii_Out_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh secn/add-cron.sh
+  mv jobs.cron secn/jobs.cron
   cp Forecast_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh othr/add-cron.sh
+  mv jobs.cron othr/jobs.cron
   cp News_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh data/add-cron.sh
+  mv jobs.cron data/jobs.cron
   cp Everybody_Votes_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh more/add-cron.sh
+  mv jobs.cron more/jobs.cron
   exit 0
 if [ $datamain == $datamore ]
 then
@@ -111,19 +111,20 @@ then
   sudo ./path.sh
   cp Check_Mii_Out_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh secn/add-cron.sh
+  mv jobs.cron secn/jobs.cron
   cp Forecast_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh othr/add-cron.sh
+  mv jobs.cron othr/jobs.cron
   cp News_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
-  rm jobs.cron
+  mv add-cron.sh data/add-cron.sh
+  mv jobs.cron data/jobs.cron
   cp Everybody_Votes_Channel/* $PWD
   sudo ./add-cron.sh
-  rm add-cron.sh
+  mv add-cron.sh more/add-cron.sh
+  mv jobs.cron more/jobs.cron
   sudo ./run.sh
   exit 0
 else
