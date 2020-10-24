@@ -6,6 +6,8 @@ echo Example Playlist ID: PLwJ2VKmefmxpUJEGB1ff6yUZ5Zd7Gegn2
 echo THAT IS NOT THE WII NO MA PLAYLIST ID, SO DO NOT BOTHER USING IT.
 puase
 set /p id="Please enter the playlist ID of the Wii No Ma OST Playlist: "
+pause
+cls
 youtube-dl.exe -i %id%
 pause
 cls
